@@ -10,7 +10,7 @@ like the navbar. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Put the title of your app here-->
-    <title>OTData - Oakland Tech Student Contacts Site</title>
+    <title>Mental Health Website</title>
     <!--This is where the link to the favicon and local CSS file goes.  The files that are referenced are in the static folder.-->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='local.css') }}"  type="text/css" />
@@ -20,8 +20,10 @@ like the navbar. -->
       Each line needs to be surrounded by curly brackets to work.
       moment.include_jquery()
       moment.include_moment()-->
+     
 </head>
 <body>
+
     <!--This is where the navbar is placed.  The navbar code is in the includes folder -->
     {% include 'includes/_navbar.html' %}
       <!-- Flask has a messages feature called "Flash" where you can pass messages to the template from the code.  This is where 

@@ -59,6 +59,8 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
+    role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student")])
+    grade = SelectField('Grade',choices=[("9th","9th"),("10th","10th"),("11th","11th"),("12th","12th")])
 
 class PostForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
