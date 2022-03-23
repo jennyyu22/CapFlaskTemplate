@@ -4,6 +4,7 @@
 # fields have types like IntField, StringField etc.  This uses the Mongoengine Python Library. When 
 # you interact with the data you are creating an onject that is an instance of the class.
 
+from tokenize import String
 from app import app
 from flask import flash
 from flask_login import UserMixin
@@ -50,6 +51,7 @@ class Post(Document):
     subject = StringField()
     content = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
+    rating = StringField()
     modifydate = DateTimeField()
 
     meta = {
