@@ -8,7 +8,7 @@ from tokenize import String
 from app import app
 from flask import flash
 from flask_login import UserMixin
-from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
+from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, IntField, CASCADE
 from flask_mongoengine import Document
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime as dt
@@ -25,6 +25,7 @@ class User(UserMixin, Document):
     image = FileField()
     role = StringField()
     grade = StringField()
+
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -64,6 +65,24 @@ class Comment(Document):
     # This could be used to allow comments on comments
     # comment = ReferenceField('Comment',reverse_delete_rule=CASCADE)
     content = StringField()
+    createdate = DateTimeField(default=dt.datetime.utcnow)
+    modifydate = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Resources(Document):
+    name = StringField()
+    website = StringField()
+    category = StringField()
+    cost = StringField()
+    contactperson = StringField()
+    contactumber = StringField()
+    description = StringField()
+
+
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
 

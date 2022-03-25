@@ -71,3 +71,17 @@ class PostForm(FlaskForm):
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
+
+class Resources(FlaskForm):
+    content = TextAreaField('Comment', validators=[DataRequired()])
+    submit = SubmitField('Comment')
+
+    name = StringField('First Name', validators=[DataRequired()])
+    website = StringField('Website', validators=[DataRequired()])
+    category = SelectField("Type",choices = [("Mental Health","Mental Health"),("Hygiene","Hygiene"),("Anxiety","Anxiety")])
+    cost = StringField('First Name', validators=[DataRequired()])
+    contactperson = StringField('Contact Person', validators=[DataRequired()])
+    contactumber = StringField('Contact Number', validators=[DataRequired()])
+    description = TextAreaField('Description', validators=[DataRequired()])
+
+    submit = SubmitField('Post')
