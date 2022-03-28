@@ -72,7 +72,7 @@ class Comment(Document):
         'ordering': ['-createdate']
     }
 
-class Resources(Document):
+class Resource(Document):
     name = StringField()
     website = StringField()
     category = StringField()
@@ -80,8 +80,6 @@ class Resources(Document):
     contactperson = StringField()
     contactumber = StringField()
     description = StringField()
-
-
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
