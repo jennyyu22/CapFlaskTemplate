@@ -17,3 +17,11 @@ def quizpage():
 @app.route('/resources')
 def resources():
     return render_template('resources.html')
+
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
+
+@app.route('/todo')
+def todo():
+    return render_template('todo.html')

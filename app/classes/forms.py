@@ -62,10 +62,10 @@ class ProfileForm(FlaskForm):
     grade = SelectField('Grade',choices=[("9th","9th"),("10th","10th"),("11th","11th"),("12th","12th")])
     
 class PostForm(FlaskForm):
-    subject = StringField('Subject', validators=[DataRequired()])
-    content = TextAreaField('Post', validators=[DataRequired()])
+    subject = StringField('Link', validators=[DataRequired()])
+    content = TextAreaField('Description', validators=[DataRequired()])
+    rating = SelectField("Price",choices = [("Free","Free"),("Cost","Cost")])
     submit = SubmitField('Post')
-    rating = SelectField("Rating",choices = [("1","1"),("2","2"),("3","3"),("4","4"),("5","5")])
 
 
 class CommentForm(FlaskForm):

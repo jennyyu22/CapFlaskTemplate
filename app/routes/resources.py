@@ -2,7 +2,7 @@ from app import app, login
 import mongoengine.errors
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user
-from app.classes.data import Resource
+from app.classes.data import Resource, Comment
 from app.classes.forms import ResourceForm
 from flask_login import login_required
 import datetime as dt
@@ -17,7 +17,7 @@ import datetime as dt
 # This means the user must be logged in to see this page
 @login_required
 # This is a function that is run when the user requests this route.
-def postNew():
+def resourceNew():
     # This gets the form object from the form.py classes that can be displayed on the template.
     form = ResourceForm()
 
@@ -65,15 +65,15 @@ def postNew():
 @app.route('/resource/<resourceID>')
 # This route will only run if the user is logged in.
 @login_required
-def post(resourceID):
+def resource(resourceID):
     # retrieve the post using the postID
-    thisPost = ResourcePost.objects.get(id=postID)
+    thisPost = Resource.objects.get(id=resourceID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
     # related to posts meaning that every comment contains a reference to a post. In this case
     # there is a field on the comment collection called 'post' that is a reference the Post
     # document it is related to.  You can use the postID to get the post and then you can use
     # the post object (thisPost in this case) to get all the comments.
-    theseComments = Comment.objects(post=thisPost)
+    theseComments = Comment.objects(resource=thisPost)
     # Send the post object and the comments object to the 'post.html' template.
-    return render_template('resource.html',post=thisPost,comments=theseComments)
+    return render_template('resource.html',resource=thisPost,comments=theseComments)
 
