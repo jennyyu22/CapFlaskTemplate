@@ -1,0 +1,42 @@
+<!-- This is a blank template.  You can copy this to make a new template page. -->
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+
+<h1 class= "display-1 text-center">Results</h1>
+
+<div class="row border">
+  <div class="col-12 border">
+      <h5>Your results are: </h5>
+      <a href="mind.gif"><img src="mind.gif" alt="Uh Oh! No Image" width="500" height="400"></a>
+  </div>
+</div>
+
+<div id="results"></div>
+
+<script type="text/javascript">
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const question1_choice = urlParams.get('question1_choice');
+  const question2_choice = urlParams.get('question2_choice');
+  const question3_choice = urlParams.get('question3_choice');
+  const question4_choice = urlParams.get('question4_choice');
+  const question5_choice = urlParams.get('question5_choice');
+  const question6_choice = urlParams.get('question6_choice');
+  const question7_choice = urlParams.get('question7_choice');
+  const question8_choice = urlParams.get('question8_choice');
+  const question9_choice = urlParams.get('question9_choice');
+  const question10_choice = urlParams.get('question10_choice');
+  var output = "<br>1. Have you felt hopeless in the past 90 days? " + question1_choice + "<br>2. Do you have little interest in activities you used to enjoy?: " + question2_choice + "<br>3. Have you having trouble falling or staying sleep, or sleeping too much?: " + question3_choice + "<br>4. Do you feel tired or have little energy?: " + question4_choice + "<br>5. Do you have poor appetite or have you been overeating in the past 30 days?: " + question5_choice + "<br>6. Do you have trouble concentrating on tasks and schoolwork?: " + question6_choice + "<br>7. Do you have thoughts that you would be better off dead, or of hurting yourself?: " + question7_choice + "<br>8. Have you felt bad about yourself or that you have let your friends and family down?: " + question8_choice + "<br>9. Have you been moving or speaking so slowly that other people could have noticed -or the opposite - being so fidgety or restless that you have been moving around a lot more than usual?: " + question9_choice + "<br>10.  If you checked off any problems, has it been difficult for you at work, home, or with other people?: " + question10_choice;
+  jQuery(document).ready(function() {
+    $("#results").html(output); 
+  });
+
+</script>
+
+{% endblock %}

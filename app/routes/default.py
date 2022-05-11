@@ -25,3 +25,7 @@ def calendar():
 @app.route('/todo')
 def todo():
     return render_template('todo.html')
+
+@app.route('/results')
+def results():
+    return render_template('results.html') 

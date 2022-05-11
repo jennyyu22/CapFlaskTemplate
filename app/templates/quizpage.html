@@ -1,51 +1,173 @@
+<!-- This is a blank template.  You can copy this to make a new template page. -->
+
 {% extends 'base.html' %}
 
 {% block body %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
 
-<div class="row">
-    <div class="col-4">
-        <h1 class="display-1">All Posts</h1>
+<h1 class= "display-1 text-center">Mental Health Quiz</h1>
+
+<p class= "text-center">Please honestly answer the questions below!</p>
+
+<form class="need-validation" action="/results" method='get'>
+<div class="row border">
+    <div class="col-12 border">
+        Question 1: Have you felt hopeless in the past 90 days?
     </div>
-    <div class="col">
-        <a href="/post/new" class="btn btn-primary btn-sm mt-5" role="button">New Post</a>
+    <div class="col-6 border">
+        <label for="yes"><img src="https://www.apa.org/images/sad-title-image_tcm7-179953.jpg" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes" name="question1_choice" value= "Yes">
+    </div>
+    <div class="col-6 border">
+        <label for="no"><img src="https://dg.imgix.net/do-you-think-you-re-happy-jgdbfiey-en/landscape/do-you-think-you-re-happy-jgdbfiey-9bb0198eeccd0a3c3c13aed064e2e2b3.jpg?ts=1520525855&ixlib=rails-4.2.0&fit=crop&w=2000&h=1050" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no" name="question1_choice" value= "No">
     </div>
 </div>
 
-{% if posts %}
-    {% for post in posts %}
-        <div class="row border-bottom">
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
-                {% endif %}
+<div class="row border">
+    <div class="col-12 border">
+        Question 2: Do you have little interest in activities you used to enjoy?
+    </div>
+    <div class="col-6 border">
+        <label for="yes2"><img src="https://media.istockphoto.com/vectors/sketch-of-child-boy-sits-with-his-head-on-his-knees-vector-id1190107660?k=20&m=1190107660&s=612x612&w=0&h=40LrUIMTlcpBKjPegSeQpiJMV7V0tgV6lz1xUxyeXiY=" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes2" name="question2_choice" value= "Burger and fries">
+    </div>
+    <div class="col-6 border">
+        <label for="no2"><img src="https://www.livehappy.com/wp-content/uploads/2018/02/happy.jpg" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no2" name="question2_choice" value= "Salads">
+    </div>
+</div>
 
-                <a href="/post/{{post.id}}">
-                    {{moment(post.createdate).calendar()}}
-                </a>
-            </div>
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">User</h3>
-                {% endif %}
-                {{post.author.username}}
-            </div>
-            <div class="col">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
-                {% endif %}
-                {{post.subject}}
-            </div>
-            <div class="col">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Rating</h3>
-                {% endif %}
-                {{post.rating}}
-            </div>
-        </div>
-        </div>
-    {% endfor %}
-{% else %}
-    <h1>No Posts</h1>
-{% endif %}
+<div class="row border">
+    <div class="col-12 border">
+        Question 3: Have you having trouble falling or staying sleep, or sleeping too much?
+    </div>
+    <div class="col-6 border">
+        <label for="yes3"><img src="https://openclipart.org/image/800px/325237" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes3" name="question3_choice" value= "Going out">
+    </div>
+    <div class="col-6 border">
+        <label for="no3"><img src="https://answers.childrenshospital.org/wp-content/uploads/2020/07/Covid_SleepTips_1MainImage.jpg" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no3" name="question3_choice" value= "Staying in">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 4: Do you feel tired or have little energy?
+    </div>
+    <div class="col-6 border">
+        <label for="yes4"><img src="https://static-bebeautiful-in.unileverservices.com/1200/900/6-foods-that-can-sap-energy-and-make-you-feel-tired-600x350-picmobhome.jpg" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes4" name="question4_choice" value= "Big Classrooms">
+    </div>
+    <div class="col-6 border">
+        <label for="no4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ4QAkqXMi8_4FErcg9ZA4hPuvIrsoFrlpHQ&usqp=CAU" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no4" name="question4_choice" value= "Small Classrooms">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 5: Do you have poor appetite or have you been overeating in the past 30 days?
+    </div>
+    <div class="col-6 border">
+        <label for="yes5"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDLbLimLDMJAgEiMUA3eGUBraLsEBrVFCFQ&usqp=CAU" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes5" name="question5_choice" value= "Colorful">
+    </div>
+    <div class="col-6 border">
+        <label for="no5"><img src="https://www.ucsfbenioffchildrens.org/-/media/project/ucsf/ucsf-bch/images/education/hero/establishing-good-eating-habits-2x.jpg" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no5" name="question5_choice" value= "Deep Colors">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 6: Do you have trouble concentrating on tasks and schoolwork?
+    </div>
+    <div class="col-6 border">
+        <label for="yes6"><img src="https://smallbusinessify.com/wp-content/uploads/2021/03/Why-cant-I-focus-at-all-1024x751.jpg" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes6" name="question6_choice" value= "Quarter System">
+    </div>
+    <div class="col-6 border">
+        <label for="no6"><img src="data:image/jpeg;base64,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" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no6" name="question6_choice" value= "Semester System">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 7: Do you have thoughts that you would be better off dead, or of hurting yourself?
+    </div>
+    <div class="col-6 border">
+        <label for="yes7"><img src="https://images.everydayhealth.com/images/how-to-cope-with-anxiety-and-depression-722x406.jpg" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes7" name="question7_choice" value= "City">
+    </div>
+    <div class="col-6 border">
+        <label for="no7"><img src="https://www.mayoclinichealthsystem.org/-/media/national-files/images/hometown-health/2018/brain-caricature-lifting-weights.jpg" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no7" name="question7_choice" value= "Rural">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 8: Have you felt bad about yourself or that you have let your friends and family down?
+    </div>
+    <div class="col-6 border">
+        <label for="yes8"><img src="https://images.theconversation.com/files/293702/original/file-20190924-54775-1a5nssg.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=675.0&fit=crop" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes8" name="question8_choice" value= "Northern California">
+    </div>
+    <div class="col-6 border">
+        <label for="no8"><img src="https://images.unsplash.com/photo-1572977438018-16c62331cecb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1974&q=80" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no8" name="question8_choice" value= "Southern California">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 9: Have you been moving or speaking so slowly that other people could have noticed
+        -or the opposite - being so fidgety or restless that you have been moving around a lot more than usual?
+    </div>
+    <div class="col-6 border">
+        <label for="yes9"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3QpojwRve3fQQEY7iQdYBI-pG8V268ej_dw&usqp=CAU" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes9" name="question9_choice" value= "Big Campus">
+    </div>
+    <div class="col-6 border">
+        <label for="no9"><img src="https://miro.medium.com/max/1400/1*MRbeoODSisFcB0CmdnFqYg.png" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no9" name="question9_choice" value= "Small Campus">
+    </div>
+</div>
+
+<div class="row border">
+    <div class="col-12 border">
+        Question 10: If you checked off any problems, has it been difficult for you at work, home, or with other people?
+    </div>
+    <div class="col-6 border">
+        <label for="yes10"><img src="https://ww2.kqed.org/app/uploads/sites/13/2017/10/depression-1920x1280.jpg" alt="Uh Oh! No Image" width="400" height="300">Yes:</label>
+        <input type="radio" id="yes10" name="question10_choice" value= "Yes">
+    </div>
+    <div class="col-6 border">
+        <label for="no10"><img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/8F05/production/_120731663_gettyimages-1057610362.jpg" alt="Uh Oh! No Image" width="400" height="300">No:</label>
+        <input type="radio" id ="no10" name="question10_choice" value= "No">
+    </div>
+</div>
+
+      <br>
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+<script type="text/javascript">
+    const queryString = window.location.search;
+    const question1_choice = urlParams.get('question1_choice');
+    const colors = urlParams.getAll('colors')
+    const writestuff = urlParams.get('writestuff');
+    var output = "Your question 1 answer is: " + question1_choice;
+
+    jQuery(document).ready(function() {
+      $("#results").html(output); 
+    });
+    
+        </script>
 
 {% endblock %}
